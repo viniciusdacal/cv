@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vinicius Dacal Lopes</title>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+	
+		*{
+			box-sizing:border-box;
+		}
+
+
+		html, body{
+			font-family: 'Tahoma', 'Arial', 'sans-serif';
+			padding: 0;
+			margin: 0;
+			overflow-x: hidden;
+		}
+		
+		h1, h2, h3{
+			font-weight: normal;
+		}
+
+		h1{
+			font-size: 35px;
+		}
+
+		.progressbar{
+			width: 300px;
+			border: 1px solid #006B9E;
+			height: 20px;
+			
+			background-color: #006B9E;
+		}
+
+		.progressbar .progress{
+			background-color: #fff;
+			background-color: rgba(255,255,255,0.7);
+			color: #006B9E;
+			text-align: center;
+			font-size: 14px;
+			height: 100%;
+
+		}
+
+		.list{
+			float: left;
+		}
+
+		.list li{
+			margin-bottom: 15px;
+		}
+
+		.page{
+			position: absolute;
+			width: 100%;
+			min-height: 100%;
+			left: 100%;
+			-webkit-transition: left 0.8s;
+			-moz-transition: left 0.8s;
+			-ms-transition: left 0.8s;
+			-o-transition: left 0.8s;
+			transition: left 0.8s;
+
+		}
+
+		.page.active{
+			/*left: 0;*/
+			/*-webkit-animation: to-left .5s;
+			-moz-animation: to-left .5s;
+			-o-animation: to-left .5s;
+			-ms-animation: to-left .5s;
+			animation: to-left .5s;*/
+		}
+
+		.container{
+			width: 1000px;
+			margin: 50px auto 0 auto;
+			padding: 0 20px;
+		}
+
+		.content-icon{
+			margin: 0 auto;
+			width: 100px;
+			height: 100px;
+			padding: 25px;
+			background-color: rgba(0,0,0,0.2);
+			border-radius: 50%;
+			text-align: center;
+			font-size: 50px;									
+			text-shadow:0 0 8px rgba(0,0,0,0.8);
+			box-shadow: inset 0px 0px 5px rgba(0,0,0,0.4);
+		}
+
+		.content-icon .fa{
+			vertical-align: text-top;
+		}
+
+		#about-me{
+			background-color: #1ECEAB;
+			color: #fff;
+		}
+
+		#experiments{
+			background-color: #B11919;
+			color: #fff;
+		}
+
+		#skills{
+			background-color: #0094DA;
+			color: #fff;
+		}
+
+		#contact{
+			background-color: #F39200;
+			color: #fff;
+		}
+
+		.active .title{
+			-webkit-animation: to-left 1s;
+			-moz-animation: to-left 1s;
+			-o-animation: to-left 1s;
+			-ms-animation: to-left 1s;
+			animation: to-left 1s;
+		}
+
+		.text{
+			font-size: 22px;
+			max-width: 630px;
+			
+		}
+
+		.active .text{
+			-webkit-animation: to-left 1.5s;
+			-moz-animation: to-left 1.5s;
+			-o-animation: to-left 1.5s;
+			-ms-animation: to-left 1.5s;
+			animation: to-left 1.5s;
+		}
+
+		.text a{
+			color: #fff;
+		}
+		
+
+		.index{
+			position: fixed;
+			z-index: 100;
+			bottom: 20px;
+			color: #fff;			
+			width: 200px;
+			right: 0;
+			margin-right: 30px;
+			text-align: center;
+		}
+
+		.index .index-list{
+			list-style: none;
+			padding: 0;
+
+		}
+
+		.index-list>li{
+			display: inline-block;
+			opacity: 0.5;
+			text-align: center;
+			transition: opacity 0.1s linear;
+			
+		}
+
+		.index-list>li:hover{
+			opacity: 0.8;
+		}
+
+		.index-list>li.active{
+			opacity: 1;
+		}
+
+		.index-list>li>a{
+			padding: 7px;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,0.4);
+			display: block;
+			color: #fff;
+			text-decoration: none;
+			
+		}
+
+		.index-list>li .fa{
+			vertical-align: text-top;;
+		}
+
+		
+	
+		@-webkit-keyframes  to-left {
+			from {margin-left: 300px; opacity: 0;}
+			to { margin-left: 0; opacity: 1; }
+		}
+		@-o-keyframes  to-left {
+			from {margin-left: 300px; opacity: 0;}
+			to { margin-left: 0; opacity: 1; }
+		}
+		@-moz-keyframes  to-left {
+			from {margin-left: 300px; opacity: 0;}
+			to { margin-left: 0; opacity: 1; }
+		}
+		@keyframes  to-left {
+			from {margin-left: 300px; opacity: 0;}
+			to { margin-left: 0; opacity: 1; }
+		}
+
+		@media (max-width: 999px) {
+			.container{
+				width: auto;
+			}
+
+			.text{
+				font-size: 20px;
+			}
+
+			.index{
+				bottom: auto;
+				right: auto;
+				top: 0;
+				left:10px;
+			}
+
+			.index-list{
+				text-align: left;
+			}
+
+			.list{
+				list-style: none;
+				padding: 0;
+				width: 100%;
+			}
+
+			.progressbar{
+				width: 100%;
+			}
+		}
+		
+
+	</style>
+</head>
+<body>
+	<nav class="index">
+		<ul class="index-list">
+			<li>
+				<a href="#about-me" title="About me">
+					<i class="fa fa-user"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#skills" title="My skills">
+					<i class="fa fa-check"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#experiments" title="Experiments">
+					<i class="fa fa-heart"></i>
+				</a>
+			</li>
+			<li>
+				<a href="#contact" title="contact">
+					<i class="fa fa-envelope"></i>
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<section class="page" id="about-me">
+		<div class="container">
+			<div class="content-icon">
+				<i class="fa fa-user"></i>
+			</div>
+			<h1 class="title">About Me</h1>
+			<div class="text">
+
+				<p>
+					My name is <b>Vinicius Dacal</b>, I am 21 years old and I am
+					Bachelor of Technology in Internet Systems.<br>
+				</p>
+				<p>
+					I make websites for fun since I was 14, when I took a course in web design.<br>
+				</p>
+				<p>
+					When I was 18, I started working at
+					<a href="http://www.adnmultipla.com" target="_blank">ADN Múltipla</a>,
+					where I have dedicated myself to front-end development and mobile development.<br>
+				</p>
+				<p>
+					I believe I have much to learn and I think this is the best of life, always have
+					something to learn and something to perfecting.<br>
+				</p>
+				<p>					 
+					I treat every difficulty as a challenge, it makes everything easier and fun.	
+				</p>
+			</div>			
+		</div>
+	</section>
+	
+	<section class="page" id="skills">
+		<div class="container">
+			
+			<div class="content-icon">
+				<i class="fa fa-check"></i>
+			</div>
+
+			<h1 class="title">Skills</h1>
+			<div class="text">
+				<ul class="list">
+					<li>
+						HTML5
+						<div class="progressbar">
+							<div class="progress" style="width:80%"> Advanced </div>
+						</div>
+						
+					</li>
+
+					<li>
+						CSS3
+						<div class="progressbar">
+							<div class="progress" style="width:90%"> Advanced </div>
+						</div>
+					</li>
+					<li>
+						Javascript
+						<div class="progressbar">
+							<div class="progress" style="width:65%"> Intermediate </div>
+						</div>
+					</li>
+					<li>
+						PHP
+						<div class="progressbar">
+							<div class="progress" style="width:70%"> Intermediate </div>
+						</div>
+					</li>
+					<li>
+						UX
+						<div class="progressbar">
+							<div class="progress" style="width:60%"> Intermediate</div>
+						</div>
+					</li>
+				</ul>
+				<p>
+					
+					
+					
+				</p>
+			</div>			
+		</div>
+	</section>
+	<section class="page" id="experiments">
+
+		<div class="container">
+			<div class="content-icon">
+				<i class="fa fa-heart"></i>
+			</div>
+			<h1 class="title">Experiments</h1>
+			<div class="text">
+
+				<p>
+					When I have free time I love doing experiments like these:					
+					<br><br>
+					 <a href="https://developer.mozilla.org/pt-BR/demos/detail/pure-css3-bender-futurama/launch" target="_blank">
+					 	Pure CSS 3 Bender Futurama
+					 </a><br>
+					 <a href="https://developer.mozilla.org/pt-BR/demos/detail/pure-css3-iron-man-marvel/launch" target="_blank">
+					 	Pure CSS 3 Iron Man Marvel
+					 </a><br>
+					
+				</p>
+			</div>			
+		</div>
+	</section>
+	
+	
+	<section class="page" id="contact">
+		<div class="container">
+			<div class="content-icon">
+				<i class="fa fa-envelope"></i>
+			</div>
+			<h1 class="title">Contact</h1>
+			<div class="text">
+				
+				<p>
+					Get in touch<br>
+					E-mail: 
+					
+					<a href="mailto:viniciusldacal@gmail.com" target="_blank">viniciusldacal@gmail.com</a><br>
+					Github: 
+					
+					<a href="https://github.com/viniciusdacal" target="_blank">github.com/viniciusdacal</a><br>
+					Facebook: 
+					<a href="http://facebook.com/viniciusdacal" target="_blank">facebook.com/viniciusdacal</a><br>
+					
+					Linkedin:
+					
+					<a href="http://br.linkedin.com/in/viniciusdacal" target="_blank">br.linkedin.com/in/viniciusdacal</a><br>
+
+
+					Skype: viniciusdacal<br>
+
+					
+					
+				</p>
+			</div>			
+		</div>
+	</section>
+
+	<script>
+		
+		function App(){
+			var pages = [];
+			var indexItems = [];
+			var currentPage = 0;
+
+			var init = function(){
+				getPages();
+				getMenuItems();
+				pages[ currentPage ].style.left = 0;
+				pages[ currentPage ].setAttribute('class', 'page active');
+				indexItems[ currentPage ].setAttribute('class', 'active');
+				
+			};
+
+			var getPages = function () {
+				pages = document.querySelectorAll('.page');
+			}
+
+			var getMenuItems = function () {
+				indexItems = document.querySelectorAll('.index li');
+			}
+
+
+
+			this.callNext =  function () {
+				this.moveTo(currentPage + 1);
+			};
+
+			this.moveTo =  function (position) {
+
+				
+				var totalPages = pages.length;
+				var count = totalPages;
+
+				if( position >= 0 && position < totalPages ){
+					
+
+					while(count--){
+						var diference = ( count - position );
+						pages[ count ].style.left =  ( diference * 100 ) +'%';	
+
+						if( count !== position ){
+							pages[ currentPage ].setAttribute('class', 'page');
+							indexItems[ currentPage ].removeAttribute('class');
+						}
+					}
+
+					pages[ position ].setAttribute('class', 'page active');
+					indexItems[ position ].setAttribute('class', 'active');
+
+					currentPage = position;
+
+				}else{
+					console.log('position out of range');
+				}
+			};
+
+			this.callPrev = function () {
+				this.moveTo(currentPage - 1);
+			};
+
+			init();
+		}
+		
+
+
+
+		var app = new App();
+
+
+
+
+		window.addEventListener('keyup', function(event){
+			event.preventDefault();
+			var code = event.keyCode;
+			
+			if(code === 37){
+				app.callPrev();
+			}else if(code === 39){				
+				app.callNext();
+			}
+		});
+		
+
+		var buttons = document.querySelectorAll('.index li a');
+
+		
+		for(var x=0; x < buttons.length; x++)
+		{
+		  buttons[x].addEventListener("click", function(event) {
+		    event.preventDefault();			
+		    
+		    var parent = this.parentNode.parentNode;
+		    var index = Array.prototype.indexOf.call(parent.children, this.parentNode);		    
+			app.moveTo(index);
+		  });
+		}
+
+		
+
+
+	</script>
+</body>
+</html>
