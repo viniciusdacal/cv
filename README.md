@@ -13,7 +13,7 @@ A way to do an interactive curriculum vitae
 
 
 ## Example
-You can see a running example [here](http://www.viniciusdacal.com/cv/)
+You can see a running example [here](http://viniciusdacal.github.com/interactive-cv/)
 
 ## License
 
